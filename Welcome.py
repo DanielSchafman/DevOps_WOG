@@ -10,4 +10,4 @@ class Welcome:
 
     def message(self):
         self.name = self._get_input._get_user_input("Please enter your name:\n")
-        self._print_prompt._print_prompt("Hello {} and welcome to the world of games(WoG)\nHere you can find many cool games to play.".format(self.name))
+        self._print_prompt._print_prompt("Hello {} and welcome to the world of games(WoG)\nHere you can find many cool games to play.\n".format(self.name))

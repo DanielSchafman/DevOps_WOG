@@ -6,9 +6,13 @@ class ConsoleInput():
         return user_input
     
     def _validate_int(self,user_input,min,max):
-        try:
-            self.user_input = int(user_input)
-            return min <= self.user_input <= max
-        except ValueError:
+        if user_input.strip().isdigit() or user_input:
+            user_input = int(user_input)
+            if min <= user_input <= max:
+                return True
+            else:
+                print("Invalid input: number out of range :@")
+                return False
+        else:
+            print("Invalid input: not a valid number :@")
             return False
-
