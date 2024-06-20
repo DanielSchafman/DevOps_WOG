@@ -6,13 +6,23 @@ class ConsoleInput():
         return user_input
     
     def _validate_int(self,user_input,min,max):
-        if user_input.strip().isdigit() or user_input:
-            user_input = int(user_input)
-            if min <= user_input <= max:
-                return True
-            else:
-                print("Invalid input: number out of range :@")
-                return False
-        else:
-            print("Invalid input: not a valid number :@")
-            return False
+        while True:
+            try:
+                user_input = user_input.strip()
+                if not user_input.isdigit():
+                    raise ValueError("{} Input is not a digit".format(user_input))
+                user_input = int(user_input)
+                if min <= user_input <= max:
+                    break
+                else:
+                    user_input = self._get_user_input("{} Invalid input: number out of range :@\n try again:\n".format(user_input))
+            except:
+                user_input = self._get_user_input("{} Invalid input: not a valid number :@\n try again:\n".format(user_input))
+        return user_input
+    
+    def _validate_list_of_int(self, user_list, min, max):
+        list_after_validation = []
+        for item in user_list:
+            validated_item = self._validate_int(item, min, max)
+            list_after_validation.append(validated_item)
+        return list_after_validation

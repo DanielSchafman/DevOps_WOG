@@ -10,9 +10,8 @@ class Play:
 
     def user_choice(self, difficulty):
         user_input = self._get_input._get_user_input("Please pick a number between 1 and {}\n".format(difficulty))
-        if(self._get_input._validate_int(user_input,1,difficulty) == False):
-            return self.user_choice(difficulty)
-
+        user_input = self._get_input._validate_int(user_input,1,difficulty)
+        
         self.secret = self.secret_generator._generate_secret(difficulty)
         self._is_choice_correct(user_input,self.secret)
 
