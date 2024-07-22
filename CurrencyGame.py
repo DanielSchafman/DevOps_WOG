@@ -2,6 +2,7 @@ from Input import ConsoleInput
 from Output import PrintOutput
 from GetSecret import Getsecret
 from Score import Score
+import creds
 import requests
 
 class PlayCurrencyRoulette:
@@ -10,7 +11,7 @@ class PlayCurrencyRoulette:
         self._print_output = PrintOutput()
         self._random_generator = Getsecret()
         self._add_player_score = Score()
-        self.api_key = "APIKEY"
+        self.api_key = creds.APIKEY
         self.base_currency = "USD"
         self.target_currency = "ILS"
         self.max_random = 100
